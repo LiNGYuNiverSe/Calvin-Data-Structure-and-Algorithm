@@ -1,5 +1,5 @@
 # Data-Structure-and-Algorithm
-Data Structure and Algorithm in Python
+Data Structure and Algorithm in Python.  
 * Data Structures:  
   * Single Link List  
   * Double Link List
@@ -13,4 +13,4 @@ Data Structure and Algorithm in Python
   * Merge Sort  
   * Sequence Search 
   * Binary Search
-  
+
