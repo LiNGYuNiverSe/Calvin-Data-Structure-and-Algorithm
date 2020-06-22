@@ -3,6 +3,7 @@ Data Structure and Algorithm in Python.
 * Data Structures:  
   * Single Link List  
   * Double Link List
+  * Stack
   * Queue
   * Binary Tree  
   
