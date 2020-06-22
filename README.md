@@ -1,4 +1,4 @@
-# Data-Structure-and-Algorithm
+# My-Data-Structure-and-Algorithm
 Data Structure and Algorithm in Python.  
 * Data Structures:  
   * Single Link List  
