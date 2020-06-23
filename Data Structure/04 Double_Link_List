@@ -1,0 +1,118 @@
+# -*- coding: utf-8 -*-
+"""
+Created on Wed Jun 17 09:45:47 2020
+
+@author: caoli
+"""
+
+class Node():
+    def __init__(self,item):
+        self.elem = item
+        self.next = None # find next node
+        self.prev = None # find previous node
+    
+class DoubleLinkList():
+    def __init__(self,node = None):
+        if node != None:
+            headNode = Node(node)
+            self.__head = headNode
+        else:
+            self.__head = node
+            
+    def is_empty(self):
+        return self.__head == None
+    
+    def length(self):
+        count = 0
+        curNode = self.__head
+        while curNode != None:
+            count += 1
+            curNode= curNode.next
+        return count
+    
+    def travel(self):
+        curNode= self.__head
+        while curNode != None:
+            print(curNode.elem, end =" ")
+            curNode = curNode.next
+        print("")
+    
+    def add(self, item):
+        #make item to be a node
+        node = Node(item)
+        if self.is_empty():
+            self.__head= node
+        else:
+            node.next = self.__head #self.__head == .next, meaning the next node (1st node) 
+            self.__head.prev = node
+            self.__head = node      # reassign the 1st node to be the node we want to add
+            
+    def append(self,item):
+        node = Node(item)
+        if self.is_empty():
+            self.__head = Node
+        else:
+            curNode = self.__head
+            while curNode.next != None:
+                curNode = curNode.next
+            #node.next = curNode.next
+            #node.prev = curNode
+            curNode.next = node
+            node.prev = curNode        
+    
+    def insert(self,pos,item):
+        if pos < 0:
+            self.add(item)    
+        elif pos > (self.length()-1):            
+            self.append(item)
+        else:
+            node = Node(item)
+            count = 0
+            curNode= self.__head
+            
+            while count < (pos-1):#(think count as index)
+                count += 1
+                curNode = curNode.next #curNode is the prev node of the pos
+
+            node.prev = curNode
+            node.next = curNode.next
+            curNode.next.prev = node
+            curNode.next = node
+
+    def remove(self, item):
+        curNode = self.__head
+        while curNode != None:
+            if curNode.elem == item:
+                if preNode == None:  #is head node?                   
+                # if only one node (no curNode.next will be none, no .prev)
+                if      
+                    self.__head = curNode.next
+                        curNode.next.prev = None
+            else:
+                curNode.prev.next = curNode.next
+                curNode.next.prev = curNode.prev
+                break
+                
+        while curNode.elem != item:
+            curNode = curNode.next
+            
+    
+    
+    
+if __name__ == "__main__":
+    doubleLinkList= DoubleLinkList()
+    print("------add------")
+    doubleLinkList.add(11)
+    doubleLinkList.add(22)
+    doubleLinkList.add(33)
+    doubleLinkList.travel()
+    print("------append------")
+    doubleLinkList.append(100)
+    doubleLinkList.append(200)
+    doubleLinkList.append(300)
+    doubleLinkList.travel()
+    print("------insert------")
+    doubleLinkList.insert(100, 400)
+    doubleLinkList.insert(2, 1000)
+    doubleLinkList.travel()
+    
